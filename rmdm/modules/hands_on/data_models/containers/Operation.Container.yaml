@@ -1,0 +1,93 @@
+space: {{ rmdm_model_space }}
+externalId: Operation
+name: RM Operation
+properties:
+  operationCode:
+    type:
+      list: false
+      collation: ucs_basic
+      type: text
+    immutable: false
+    nullable: true
+    autoIncrement: false
+    name: Operation Code
+  operationDesc:
+    type:
+      list: false
+      collation: ucs_basic
+      type: text
+    immutable: false
+    nullable: true
+    autoIncrement: false
+    name: Operation Description
+  finalConfirmed:
+    type:
+      list: false
+      type: boolean
+    immutable: false
+    nullable: true
+    autoIncrement: false
+    name: Final Confirmed
+  maintActivityType:
+    type:
+      list: false
+      type: int64
+    immutable: false
+    nullable: true
+    autoIncrement: false
+    name: Maintenance Activity Type
+    description: Code indicating the type of the maintenance activity, such as repairs,
+      inspections or shutdowns.
+  maintActivityTypeDesc:
+    type:
+      list: false
+      collation: ucs_basic
+      type: text
+    immutable: false
+    nullable: true
+    autoIncrement: false
+    name: Maintenance Activity Type Description
+    description: Human readable name indicating the type of the maintenance activity,
+      such as repairs, inspections or shutdowns.
+  maintenanceOrderDueDate:
+    type:
+      list: false
+      type: date
+    immutable: false
+    nullable: true
+    autoIncrement: false
+    name: Maintenance Order Due Date
+    description: The due date of the maintenance order that this operation is associated
+      with.
+  systemCondition:
+    type:
+      list: false
+      collation: ucs_basic
+      type: text
+    immutable: false
+    nullable: true
+    autoIncrement: false
+    name: System Condition
+    description: Indicates in which system condition the operational system must be
+      during the execution of the maintenance work described in the order operation.
+      You can determine, for example, whether the operational system can be in operation
+      or must not be in operation.
+  openClosed:
+    type:
+      type: enum
+      values:
+        Open:
+          name: Open
+        Closed:
+          name: Closed
+    immutable: false
+    nullable: true
+    autoIncrement: false
+    name: Open/Closed
+constraints:
+  cdf_idm_CogniteOperation:
+    require:
+      space: cdf_idm
+      externalId: CogniteOperation
+      type: container
+    constraintType: requires

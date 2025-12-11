@@ -1,0 +1,14 @@
+environment:
+  name: dev
+  project: <cdf-project>
+  validation-type: dev
+  selected:
+  - modules/hands_on
+
+variables:
+  modules:
+    hands_on:
+      rmdm_model_space: rmdm_model_space
+      rmdm_model_views_version: '1.0.0'
+      rmdm_instance_space: rmdm_instances_space
+

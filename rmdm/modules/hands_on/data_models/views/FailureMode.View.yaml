@@ -1,0 +1,20 @@
+space: {{ rmdm_model_space }}
+externalId: FailureMode
+name: RM Failure Mode
+description: The manner in which failure occurs. Failure modes are used with one or
+  more equipment classes.
+implements:
+- space: cdf_cdm
+  externalId: CogniteDescribable
+  version: v1
+  type: view
+version: {{ rmdm_model_views_version }}
+properties:
+  code:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FailureMode
+      type: container
+    containerPropertyIdentifier: code
+    name: Code
+    description: The code of the failure mode according to ISO 14224

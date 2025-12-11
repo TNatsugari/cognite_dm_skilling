@@ -1,0 +1,16 @@
+externalId: tr-RMDM-ASSET-CNY
+name: RMDM-ASSET-CNY
+destination:
+  type: instances
+  instanceSpace:
+  dataModel:
+    inheritFromDataModel: false
+    space: dmu_rmdm_model
+    externalId: RMDM
+    version: 1.0.0
+    destinationType: Asset
+    destinationRelationshipFromType:
+conflictMode: upsert
+isPublic: true
+ignoreNullFields: false
+dataSetExternalId:

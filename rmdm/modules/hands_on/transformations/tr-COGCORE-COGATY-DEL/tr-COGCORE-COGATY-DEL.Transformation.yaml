@@ -1,0 +1,16 @@
+externalId: tr-COGCORE-COGATY-DEL
+name: COGCORE-COGATY-DEL
+destination:
+  type: instances
+  instanceSpace:
+  dataModel:
+    inheritFromDataModel: false
+    space: cdf_cdm
+    externalId: CogniteCore
+    version: v1
+    destinationType: CogniteAssetType
+    destinationRelationshipFromType:
+conflictMode: delete
+isPublic: true
+ignoreNullFields: true
+dataSetExternalId:
