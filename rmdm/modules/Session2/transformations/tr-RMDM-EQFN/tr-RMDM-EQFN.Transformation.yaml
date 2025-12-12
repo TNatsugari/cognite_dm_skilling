@@ -1,0 +1,16 @@
+externalId: tr-RMDM-EQFN
+name: RMDM-EQFN
+destination:
+  type: instances
+  instanceSpace:
+  dataModel:
+    inheritFromDataModel: false
+    space: dmu_rmdm_model
+    externalId: RMDM
+    version: 1.0.0
+    destinationType: EquipmentFunction
+    destinationRelationshipFromType:
+conflictMode: upsert
+isPublic: true
+ignoreNullFields: false
+dataSetExternalId:

@@ -1,0 +1,16 @@
+externalId: tr-RMDM-EQUIPMENT-DEL
+name: RMDM-EQUIPMENT-DEL
+destination:
+  type: instances
+  instanceSpace:
+  dataModel:
+    inheritFromDataModel: false
+    space: dmu_rmdm_model
+    externalId: RMDM
+    version: 1.0.0
+    destinationType: Equipment
+    destinationRelationshipFromType:
+conflictMode: delete
+isPublic: true
+ignoreNullFields: false
+dataSetExternalId:

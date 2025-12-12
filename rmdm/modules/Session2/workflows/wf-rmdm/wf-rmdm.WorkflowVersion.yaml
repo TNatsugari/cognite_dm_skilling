@@ -1,0 +1,533 @@
+workflowExternalId: wf-rmdm
+version: '3'
+workflowDefinition:
+  tasks:
+  - externalId: task-transformation-asset-del
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-ASSET-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-ASSET-DEL
+    description: Job deleting ALL assets in the RMDM model
+  - externalId: task-transformation-src-del
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-COGCORE-COGSRC-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: COGCORE-COGSRC-DEL
+    description: Job deleting ALL defined source systems in CogniteCore
+  - externalId: task-transformation-aty-del
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-COGCORE-COGATY-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: COGCORE-COGATY-DEL
+    description: Job deleting ALL defined asset types in CogniteCore
+  - externalId: task-transformation-src
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-COGCORE-COGSRC
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: COGCORE-COGSRC
+    description: Job creating ALL defined source systems in CogniteCore
+    dependsOn:
+    - externalId: task-transformation-src-del
+  - externalId: task-transformation-aty
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-COGCORE-COGATY
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: COGCORE-COGATY
+    description: Job creating ALL defined asset types in CogniteCore
+    dependsOn:
+    - externalId: task-transformation-aty-del
+  - externalId: task-transformation-cny
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-ASSET-CNY
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-ASSET-CNY
+    description: Job to populate the GoA (GoM) canyons
+    dependsOn:
+    - externalId: task-transformation-asset-del
+    - externalId: task-transformation-src
+    - externalId: task-transformation-aty
+  - externalId: task-transformation-fld
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-ASSET-FLD
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-ASSET-FLD
+    description: Job to populate the GoA (GoM) fields
+    dependsOn:
+    - externalId: task-transformation-cny
+  - externalId: task-transformation-pltf
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-ASSET-PLTF
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-ASSET-PLTF
+    description: Job to populate the GoA (GoM) platforms
+    dependsOn:
+    - externalId: task-transformation-fld
+  - externalId: task-transformation-wll
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-ASSET-WLL
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-ASSET-WLL
+    description: Job to populate the GoA (GoM) wells
+    dependsOn:
+    - externalId: task-transformation-pltf
+  - externalId: task-transformation-wlb
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-ASSET-WLB
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-ASSET-WLB
+    description: Job to populate the GoA (GoM) wellbores
+    dependsOn:
+    - externalId: task-transformation-wll
+  - externalId: task-transformation-eqty-del
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-EQTY-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-EQTY-DEL
+    description: Job deleting ALL equipment types in the RMDM model
+  - externalId: task-transformation-eqcl-del
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-EQCL-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-EQCL-DEL
+    description: Job deleting ALL equipment classes in the RMDM model
+  - externalId: task-transformation-eqty
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-EQTY
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-EQTY
+    description: Job creating ALL defined equipment types in RMDM
+    dependsOn:
+    - externalId: task-transformation-eqty-del
+  - externalId: task-transformation-eqcl
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-EQCL
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-EQCL
+    description: Job creating ALL defined equipment classes in RMDM
+    dependsOn:
+    - externalId: task-transformation-eqcl-del
+  - externalId: task-transformation-eq-del
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-EQUIPMENT-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-EQUIPMENT-DEL
+    description: Job deleting ALL equipments in the RMDM model
+  - externalId: task-transformation-eq-tnk
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-EQ-TNK
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-EQ-TNK
+    description: Job to populate the tanks on a platform
+    dependsOn:
+    - externalId: task-transformation-eq-del
+    - externalId: task-transformation-pltf
+    - externalId: task-transformation-eqcl
+    - externalId: task-transformation-eqty
+  - externalId: task-transformation-eq-bop
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-EQ-BOP
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-EQ-BOP
+    description: Job to populate the BOP stack on a well
+    dependsOn:
+    - externalId: task-transformation-eq-del
+    - externalId: task-transformation-wll
+    - externalId: task-transformation-eqcl
+    - externalId: task-transformation-eqty
+  - externalId: task-transformation-eq-met
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-EQ-MET
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-EQ-MET
+    description: Job to populate the flow-meters on a platform
+    dependsOn:
+    - externalId: task-transformation-eq-del
+    - externalId: task-transformation-pltf
+    - externalId: task-transformation-eqcl
+    - externalId: task-transformation-eqty
+  - externalId: task-transformation-tbl
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-EQ-TBL
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-EQ-TBL
+    description: Job to populate the tubulars on a wellbore
+    dependsOn:
+    - externalId: task-transformation-eq-del
+    - externalId: task-transformation-wlb
+  - externalId: task-transformation-failm
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-FAILM
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: skipTask
+    name: RMDM-FAILM
+    dependsOn:
+    - externalId: task-transformation-failmdel
+  - externalId: task-transformation-failmdel
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-FAILM-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: skipTask
+    name: RMDM-FAILM-DEL
+  - externalId: task-transformation-failc
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-FAILC
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: skipTask
+    name: RMDM-FAILC
+    dependsOn:
+    - externalId: task-transformation-failcdel
+  - externalId: task-transformation-failcdel
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-FAILC-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: skipTask
+    name: RMDM-FAILC-DEL
+  - externalId: task-transformation-failmd
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-FAILMD
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: skipTask
+    name: RMDM-FAILMD
+    dependsOn:
+    - externalId: task-transformation-failmd-del
+  - externalId: task-transformation-failmd-del
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-FAILMD-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: skipTask
+    name: RMDM-FAILMD-DEL
+  - externalId: task-transformation-eqcl-failmd
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-EQCL-FAILMD
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: skipTask
+    name: RMDM-EQCL-FAILMD
+    dependsOn:
+    - externalId: task-transformation-failmd-del
+    - externalId: task-transformation-eqcl
+    - externalId: task-transformation-failmd
+  - externalId: task-transformation-failnotdel
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-FAILNOT-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: skipTask
+    name: RMDM-FAILNOT-DEL
+    dependsOn:
+    - externalId: task-transformation-failc
+    - externalId: task-transformation-failm
+    - externalId: task-transformation-eqcl-failmd
+  - externalId: task-transformation-failnot
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-FAILNOT
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-FAILNOT
+    dependsOn:
+    - externalId: task-transformation-failnotdel
+  - externalId: task-transformation-failnotnpt
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-FAILNOT-NPT
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-FAILNOT-NPT
+    dependsOn:
+    - externalId: task-transformation-failnotdel
+  - externalId: task-transformation-failnoteq
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-FAILNOT-EQ
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-FAILNOT-EQ
+    dependsOn:
+    - externalId: task-transformation-failnotnpt
+    - externalId: task-transformation-failnot
+    - externalId: task-transformation-eq-bop
+    - externalId: task-transformation-tbl
+  - externalId: task-transformation-opropt-tse
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-OPR-OPT-TSE
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-OPR-OPT-TSE
+    dependsOn:
+    - externalId: task-transformation-opropt
+    - externalId: task-transformation-tse
+  - externalId: task-transformation-mord-del
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-MORD-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: skipTask
+    name: RMDM-MORD-DEL
+    dependsOn:
+    - externalId: task-transformation-oprdel
+  - externalId: task-transformation-opreq
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-OPR-EQ
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-OPR-EQ
+    dependsOn:
+    - externalId: task-transformation-opropt
+    - externalId: task-transformation-opr-rest
+  - externalId: task-transformation-mordrest
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-MORD_REST
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-MORD_REST
+    dependsOn:
+    - externalId: task-transformation-mord-del
+  - externalId: task-transformation-mordopt
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-MORD_OPT
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-MORD_OPT
+    dependsOn:
+    - externalId: task-transformation-mord-del
+  - externalId: task-transformation-opr-rest
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-OPR-REST
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-OPR-REST
+    dependsOn:
+    - externalId: task-transformation-mordrest
+  - externalId: task-transformation-opropt
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-OPR-OPT
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-OPR-OPT
+    dependsOn:
+    - externalId: task-transformation-mordopt
+  - externalId: task-transformation-oprdel
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-OPR-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: skipTask
+    name: RMDM-OPR-DEL
+    dependsOn:
+    - externalId: task-transformation-tbl
+    - externalId: task-transformation-eq-met
+    - externalId: task-transformation-eq-bop
+    - externalId: task-transformation-eq-tnk
+  - externalId: task-transformation-tsedel
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-TSE-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: skipTask
+    name: RMDM-TSE-DEL
+  - externalId: task-transformation-tse
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-TSE
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-TSE
+    dependsOn:
+    - externalId: task-transformation-tsedel
+    - externalId: task-transformation-eq-met
+    - externalId: task-transformation-wlb
+  - externalId: task-transformation-files
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-FILES
+        concurrencyPolicy: restartAfterCurrent
+    retries: null
+    timeout: null
+    onFailure: abortWorkflow
+    name: RMDM-FILES
+    dependsOn:
+    - externalId: task-transformation-filesdel
+    - externalId: task-transformation-wlb
+  - externalId: task-transformation-filesdel
+    type: transformation
+    parameters:
+      transformation:
+        externalId: tr-RMDM-FILES-DEL
+        concurrencyPolicy: fail
+    retries: null
+    timeout: null
+    onFailure: skipTask
+    name: RMDM-FILES-DEL
+  description: Workflow to populate FROM SCRATCH the RMDM data model

@@ -1,0 +1,138 @@
+---
+space: {{rmdm_model_space}}
+externalId: Operation
+name: RM Operation
+description: Represents operations, a specific part of the work included in a maintenance
+  order. Often called a "work order item" or "work order operations".
+implements:
+- space: cdf_idm
+  externalId: CogniteOperation
+  version: v1
+  type: view
+version: {{ rmdm_model_views_version }}
+properties:
+  startTime:
+    container:
+      space: cdf_cdm
+      externalId: CogniteSchedulable
+      type: container
+    containerPropertyIdentifier: startTime
+    name: Actual Start Time
+    description: Indicates the date on which the execution or the setup of the operation
+      started.
+  endTime:
+    container:
+      space: cdf_cdm
+      externalId: CogniteSchedulable
+      type: container
+    containerPropertyIdentifier: endTime
+    name: Actual End Time
+    description: Indicates the date on which the execution or the teardown of the
+      operation finished.
+  assets:
+    container:
+      space: cdf_cdm
+      externalId: CogniteActivity
+      type: container
+    containerPropertyIdentifier: assets
+    name: Assets
+    description: The complete list of assets (functional locations) this operation
+      is related to.
+    source:
+      space: {{ rmdm_model_space }}
+      externalId: Asset
+      version: {{ rmdm_model_views_version }}
+      type: view
+  maintenanceOrder:
+    container:
+      space: cdf_idm
+      externalId: CogniteOperation
+      type: container
+    containerPropertyIdentifier: maintenanceOrder
+    name: Maintenance Order
+    description: The maintenance order the operation is related to.
+    source:
+      space: {{ rmdm_model_space }}
+      externalId: MaintenanceOrder
+      version: {{ rmdm_model_views_version }}
+      type: view
+  mainAsset:
+    container:
+      space: cdf_idm
+      externalId: CogniteOperation
+      type: container
+    containerPropertyIdentifier: mainAsset
+    name: Main Asset
+    description: The primary asset (functional location) the operation is related
+      to.
+    source:
+      space: {{ rmdm_model_space }}
+      externalId: Asset
+      version: {{ rmdm_model_views_version }}
+      type: view
+  operationCode:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: Operation
+      type: container
+    containerPropertyIdentifier: operationCode
+    name: Operation Code
+  operationDesc:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: Operation
+      type: container
+    containerPropertyIdentifier: operationDesc
+    name: Operation Description
+  finalConfirmed:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: Operation
+      type: container
+    containerPropertyIdentifier: finalConfirmed
+    name: Final Confirmed
+  maintActivityType:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: Operation
+      type: container
+    containerPropertyIdentifier: maintActivityType
+    name: Maintenance Activity Type
+    description: Code indicating the type of the maintenance activity, such as repairs,
+      inspections or shutdowns.
+  maintActivityTypeDesc:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: Operation
+      type: container
+    containerPropertyIdentifier: maintActivityTypeDesc
+    name: Maintenance Activity Type Description
+    description: Human readable name indicating the type of the maintenance activity,
+      such as repairs, inspections or shutdowns.
+  maintenanceOrderDueDate:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: Operation
+      type: container
+    containerPropertyIdentifier: maintenanceOrderDueDate
+    name: Maintenance Order Due Date
+    description: The due date of the maintenance order that this operation is associated
+      with.
+  systemCondition:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: Operation
+      type: container
+    containerPropertyIdentifier: systemCondition
+    name: System Condition
+    description: Indicates in which system condition the operational system must be
+      during the execution of the maintenance work described in the order operation.
+      You can determine, for example, whether the operational system can be in operation
+      or must not be in operation.
+  openClosed:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: Operation
+      type: container
+    containerPropertyIdentifier: openClosed
+    name: Open/Closed

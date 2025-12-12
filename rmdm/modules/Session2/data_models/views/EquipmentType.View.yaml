@@ -1,0 +1,26 @@
+space: {{ rmdm_model_space }}
+externalId: EquipmentType
+name: RM Equipment Type
+description: |-
+  @code: EQTY
+  Represents the type of equipment.
+implements:
+- space: cdf_cdm
+  externalId: CogniteEquipmentType
+  version: v1
+  type: view
+version: {{ rmdm_model_views_version }}
+properties:
+  class:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: EquipmentType
+      type: container
+    containerPropertyIdentifier: class
+    name: Class
+    description: Specifies the class of the equipment.
+    source:
+      space: {{ rmdm_model_space }}
+      externalId: EquipmentClass
+      version: {{ rmdm_model_views_version }}
+      type: view
