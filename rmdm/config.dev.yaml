@@ -3,12 +3,16 @@ environment:
   project: <cdf-project>
   validation-type: dev
   selected:
-  - modules/hands_on
+  - modules/Session1
+
 
 variables:
   modules:
-    hands_on:
-      rmdm_model_space: rmdm_model_sp
+    Session1:
+      rmdm_model_space: session1_rmdm
       rmdm_model_views_version: '1.0.0'
-      rmdm_instance_space: rmdm_instances_sp
-
+      rmdm_instance_space: session1_rmdm_instance
+    Session2:
+      rmdm_model_space: session2_rmdm
+      rmdm_model_views_version: '1.0.0'
+      rmdm_instance_space: session2_rmdm_instance

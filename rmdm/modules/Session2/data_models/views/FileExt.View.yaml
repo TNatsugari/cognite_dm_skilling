@@ -1,0 +1,150 @@
+space: {{ rmdm_model_space }}
+externalId: FileExt
+name: RM File
+description: |- 
+  @code: FILES
+  Represents files.
+implements:
+- space: cdf_cdm
+  externalId: CogniteFile
+  version: v1
+  type: view
+version: {{ rmdm_model_views_version }}
+properties:
+  assets:
+    container:
+      space: cdf_cdm
+      externalId: CogniteFile
+      type: container
+    containerPropertyIdentifier: assets
+    name: Assets
+    description: List of assets/functional locations that this file is related to.
+    source:
+      space: {{ rmdm_model_space }}
+      externalId: Asset
+      version: {{ rmdm_model_views_version }}
+      type: view
+  equipment:
+    source:
+      space: {{ rmdm_model_space }}
+      externalId: Equipment
+      version: {{ rmdm_model_views_version }}
+      type: view
+    through:
+      source:
+        space: {{ rmdm_model_space }}
+        externalId: Equipment
+        version: {{ rmdm_model_views_version }}
+        type: view
+      identifier: files
+    name: Equipment
+    description: An automatically updated list of equipment this file is related to.
+    connectionType: multi_reverse_direct_relation
+  updatedDate:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: updatedDate
+    name: Updated Date
+    description: The date this document was last updated.
+  issueDate:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: issueDate
+    name: Issue Date
+    description: The date that the document was issued on.
+  revisionRemark:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: revisionRemark
+    name: Revision Remark
+    description: Important remarks of the document.
+  revision:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: revision
+    name: Revision
+    description: A sequential number for each document revision, e.g. NN, giving each
+      document revision a unique identification..
+  latest:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: latest
+    name: Latest
+    description: The indication whether the document revision is the latest or not.
+  disciplineCode:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: disciplineCode
+    name: Discipline Code
+    description: A code indicating particulat discipline, e.g. P for Process, and
+      O for Operations.
+  className:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: className
+    name: Class Name
+    description: Human readable class name of the file.
+  classId:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: classId
+    name: Class ID
+    description: Code for the file class.
+  area:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: area
+    name: Area
+    description: The area that the document concerns.
+  facility:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: facility
+    name: Facility
+    description: The facility that the document concerns. A facility consists of functional
+      systems.
+  system:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: system
+    name: System
+    description: The system that the document concerns, e,g, System 20 Oil export
+      system.
+  originatingContractor:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: originatingContractor
+    name: Originating Contractor
+    description: The organisation/contractor/supplier who initially created a document.
+  workflowStatus:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: FileExt
+      type: container
+    containerPropertyIdentifier: workflowStatus
+    name: Workflow Status
+    description: The workflow status of this file.
