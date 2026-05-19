@@ -1,0 +1,16 @@
+externalId: tr-RMDM-FAILMD
+name: RMDM-FAILMD
+destination:
+  type: instances
+  instanceSpace:
+  dataModel:
+    inheritFromDataModel: false
+    space: dmu_rmdm_model
+    externalId: RMDM
+    version: 1.0.0
+    destinationType: FailureMode
+    destinationRelationshipFromType:
+conflictMode: upsert
+isPublic: true
+ignoreNullFields: true
+dataSetExternalId:

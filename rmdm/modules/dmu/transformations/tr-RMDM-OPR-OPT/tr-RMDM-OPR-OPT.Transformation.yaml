@@ -1,0 +1,16 @@
+externalId: tr-RMDM-OPR-OPT
+name: RMDM-OPR-OPT
+destination:
+  type: instances
+  instanceSpace:
+  dataModel:
+    inheritFromDataModel: false
+    space: dmu_rmdm_model
+    externalId: RMDM
+    version: 1.0.0
+    destinationType: Operation
+    destinationRelationshipFromType:
+conflictMode: upsert
+isPublic: true
+ignoreNullFields: true
+dataSetExternalId:

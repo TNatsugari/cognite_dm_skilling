@@ -1,0 +1,16 @@
+externalId: tr-COGCORE-COGSRC-DEL
+name: COGCORE-COGSRC-DEL
+destination:
+  type: instances
+  instanceSpace:
+  dataModel:
+    inheritFromDataModel: false
+    space: cdf_cdm
+    externalId: CogniteCore
+    version: v1
+    destinationType: CogniteSourceSystem
+    destinationRelationshipFromType:
+conflictMode: upsert
+isPublic: true
+ignoreNullFields: true
+dataSetExternalId:
