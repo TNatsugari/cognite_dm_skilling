@@ -1,0 +1,49 @@
+---
+space: {{ rmdm_model_space }}
+externalId: TimeSeriesExt
+name: RM TimeSeries
+description: |-
+  @code: TSE
+  Represents a series of data points in time order.
+implements:
+- space: cdf_cdm
+  externalId: CogniteTimeSeries
+  version: v1
+  type: view
+filter:
+  and:
+    - equals:
+        property: ["node", "space"]
+        value: {{ rmdm_instance_space }}
+    - hasData:
+      - type: container
+        space: cdf_cdm
+        externalId: CogniteTimeSeries
+version: {{ rmdm_model_views_version }}
+properties:
+  assets:
+    container:
+      space: cdf_cdm
+      externalId: CogniteTimeSeries
+      type: container
+    containerPropertyIdentifier: assets
+    name: Assets
+    description: The functional location that the time series relate to.
+    source:
+      space: {{ rmdm_model_space }}
+      externalId: Asset
+      version: {{ rmdm_model_views_version }}
+      type: view
+  equipment:
+    container:
+      space: cdf_cdm
+      externalId: CogniteTimeSeries
+      type: container
+    containerPropertyIdentifier: equipment
+    name: Equipment
+    description: Indicates the physical equipment to which the files refer.
+    source:
+      space: {{ rmdm_model_space }}
+      externalId: Equipment
+      version: {{ rmdm_model_views_version }}
+      type: view

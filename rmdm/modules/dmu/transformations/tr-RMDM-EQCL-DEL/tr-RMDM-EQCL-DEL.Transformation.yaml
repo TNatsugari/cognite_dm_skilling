@@ -1,0 +1,16 @@
+externalId: tr-RMDM-EQCL-DEL
+name: RMDM-EQCL-DEL
+destination:
+  type: instances
+  instanceSpace:
+  dataModel:
+    inheritFromDataModel: false
+    space: dmu_rmdm_model
+    externalId: RMDM
+    version: 1.0.0
+    destinationType: EquipmentClass
+    destinationRelationshipFromType:
+conflictMode: delete
+isPublic: true
+ignoreNullFields: false
+dataSetExternalId:

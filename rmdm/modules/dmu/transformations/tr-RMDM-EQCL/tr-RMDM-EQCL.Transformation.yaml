@@ -1,0 +1,16 @@
+externalId: tr-RMDM-EQCL
+name: RMDM-EQCL
+destination:
+  type: instances
+  instanceSpace:
+  dataModel:
+    inheritFromDataModel: false
+    space: dmu_rmdm_model
+    externalId: RMDM
+    version: 1.0.0
+    destinationType: EquipmentClass
+    destinationRelationshipFromType:
+conflictMode: upsert
+isPublic: true
+ignoreNullFields: false
+dataSetExternalId:

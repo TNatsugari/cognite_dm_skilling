@@ -1,0 +1,42 @@
+space: {{ rmdm_model_space }}
+externalId: EquipmentClass
+name: RM Equipment Class
+description: |-
+  @code: EQCL
+  Class of similar type of equipment units (e.g. all pumps)
+implements:
+- space: cdf_cdm
+  externalId: CogniteDescribable
+  version: v1
+  type: view
+version: {{ rmdm_model_views_version }}
+properties:
+  code:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: EquipmentClass
+      type: container
+    containerPropertyIdentifier: code
+    name: Code
+    description: A unique identifier for the class of asset.
+  standard:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: EquipmentClass
+      type: container
+    containerPropertyIdentifier: standard
+    name: Standard
+    description: A text string to specify which standard the class is from.
+  failureModes:
+    container:
+      space: {{ rmdm_model_space }}
+      externalId: EquipmentClass
+      type: container
+    containerPropertyIdentifier: failureModes
+    name: Failure Modes
+    description: The distinct ways in which an asset or component can fail.
+    source:
+      space: {{ rmdm_model_space }}
+      externalId: FailureMode
+      version: {{ rmdm_model_views_version }}
+      type: view

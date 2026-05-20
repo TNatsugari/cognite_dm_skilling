@@ -1,0 +1,16 @@
+externalId: tr-RMDM-FAILNOT-DEL
+name: RMDM-FAILNOT-DEL
+destination:
+  type: instances
+  instanceSpace:
+  dataModel:
+    inheritFromDataModel: false
+    space: dmu_rmdm_model
+    externalId: RMDM
+    version: 1.0.0
+    destinationType: FailureNotification
+    destinationRelationshipFromType:
+conflictMode: delete
+isPublic: true
+ignoreNullFields: true
+dataSetExternalId:

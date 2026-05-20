@@ -1,0 +1,16 @@
+externalId: tr-RMDM-MORD_REST
+name: RMDM-MORD_REST
+destination:
+  type: instances
+  instanceSpace:
+  dataModel:
+    inheritFromDataModel: false
+    space: dmu_rmdm_model
+    externalId: RMDM
+    version: 1.0.0
+    destinationType: MaintenanceOrder
+    destinationRelationshipFromType:
+conflictMode: upsert
+isPublic: true
+ignoreNullFields: true
+dataSetExternalId:
