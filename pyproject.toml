@@ -10,7 +10,7 @@ python = ">=3.11,<3.14"
 
 # Cognite ecosystem
 cognite-sdk = "*"
-cognite-toolkit = "0.6.19"
+cognite-toolkit = "0.6.87"
 cognite-pygen = "*"
 
 # Data Engineering essentials

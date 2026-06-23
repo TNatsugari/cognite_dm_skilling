@@ -12,6 +12,7 @@ variables:
       rmdm_model_space: dmu_rmdm_model
       rmdm_model_views_version: '1.0.0'
       rmdm_instance_space: dmu_rmdm_instances
+      rmdm_dataset: rmdm_dataset
     Session1:
       rmdm_model_space: session1_rmdm
       rmdm_model_views_version: '1.0.0'

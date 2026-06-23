@@ -8,8 +8,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-ASSET-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-ASSET-DEL
     description: Job deleting ALL assets in the RMDM model
@@ -19,8 +18,7 @@ workflowDefinition:
       transformation:
         externalId: tr-COGCORE-COGSRC-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: COGCORE-COGSRC-DEL
     description: Job deleting ALL defined source systems in CogniteCore
@@ -30,8 +28,7 @@ workflowDefinition:
       transformation:
         externalId: tr-COGCORE-COGATY-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: COGCORE-COGATY-DEL
     description: Job deleting ALL defined asset types in CogniteCore
@@ -41,8 +38,7 @@ workflowDefinition:
       transformation:
         externalId: tr-COGCORE-COGSRC
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: COGCORE-COGSRC
     description: Job creating ALL defined source systems in CogniteCore
@@ -54,8 +50,7 @@ workflowDefinition:
       transformation:
         externalId: tr-COGCORE-COGATY
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: COGCORE-COGATY
     description: Job creating ALL defined asset types in CogniteCore
@@ -67,8 +62,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-ASSET-CNY
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-ASSET-CNY
     description: Job to populate the GoA (GoM) canyons
@@ -82,8 +76,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-ASSET-FLD
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-ASSET-FLD
     description: Job to populate the GoA (GoM) fields
@@ -95,8 +88,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-ASSET-PLTF
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-ASSET-PLTF
     description: Job to populate the GoA (GoM) platforms
@@ -108,8 +100,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-ASSET-WLL
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-ASSET-WLL
     description: Job to populate the GoA (GoM) wells
@@ -121,8 +112,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-ASSET-WLB
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-ASSET-WLB
     description: Job to populate the GoA (GoM) wellbores
@@ -134,8 +124,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-EQTY-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-EQTY-DEL
     description: Job deleting ALL equipment types in the RMDM model
@@ -145,8 +134,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-EQCL-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-EQCL-DEL
     description: Job deleting ALL equipment classes in the RMDM model
@@ -156,8 +144,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-EQTY
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-EQTY
     description: Job creating ALL defined equipment types in RMDM
@@ -169,8 +156,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-EQCL
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-EQCL
     description: Job creating ALL defined equipment classes in RMDM
@@ -182,8 +168,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-EQUIPMENT-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-EQUIPMENT-DEL
     description: Job deleting ALL equipments in the RMDM model
@@ -193,8 +178,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-EQ-TNK
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-EQ-TNK
     description: Job to populate the tanks on a platform
@@ -209,8 +193,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-EQ-BOP
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-EQ-BOP
     description: Job to populate the BOP stack on a well
@@ -225,8 +208,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-EQ-MET
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-EQ-MET
     description: Job to populate the flow-meters on a platform
@@ -241,8 +223,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-EQ-TBL
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-EQ-TBL
     description: Job to populate the tubulars on a wellbore
@@ -255,8 +236,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-FAILM
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: skipTask
     name: RMDM-FAILM
     dependsOn:
@@ -267,8 +247,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-FAILM-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: skipTask
     name: RMDM-FAILM-DEL
   - externalId: task-transformation-failc
@@ -277,8 +256,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-FAILC
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: skipTask
     name: RMDM-FAILC
     dependsOn:
@@ -289,8 +267,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-FAILC-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: skipTask
     name: RMDM-FAILC-DEL
   - externalId: task-transformation-failmd
@@ -299,8 +276,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-FAILMD
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: skipTask
     name: RMDM-FAILMD
     dependsOn:
@@ -311,8 +287,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-FAILMD-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: skipTask
     name: RMDM-FAILMD-DEL
   - externalId: task-transformation-eqcl-failmd
@@ -321,8 +296,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-EQCL-FAILMD
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: skipTask
     name: RMDM-EQCL-FAILMD
     dependsOn:
@@ -335,8 +309,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-FAILNOT-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: skipTask
     name: RMDM-FAILNOT-DEL
     dependsOn:
@@ -349,8 +322,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-FAILNOT
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-FAILNOT
     dependsOn:
@@ -361,8 +333,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-FAILNOT-NPT
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-FAILNOT-NPT
     dependsOn:
@@ -373,8 +344,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-FAILNOT-EQ
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-FAILNOT-EQ
     dependsOn:
@@ -388,8 +358,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-OPR-OPT-TSE
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-OPR-OPT-TSE
     dependsOn:
@@ -401,8 +370,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-MORD-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: skipTask
     name: RMDM-MORD-DEL
     dependsOn:
@@ -413,8 +381,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-OPR-EQ
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-OPR-EQ
     dependsOn:
@@ -426,8 +393,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-MORD_REST
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-MORD_REST
     dependsOn:
@@ -438,8 +404,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-MORD_OPT
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-MORD_OPT
     dependsOn:
@@ -450,8 +415,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-OPR-REST
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-OPR-REST
     dependsOn:
@@ -462,8 +426,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-OPR-OPT
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-OPR-OPT
     dependsOn:
@@ -474,8 +437,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-OPR-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: skipTask
     name: RMDM-OPR-DEL
     dependsOn:
@@ -489,8 +451,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-TSE-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: skipTask
     name: RMDM-TSE-DEL
   - externalId: task-transformation-tse
@@ -499,8 +460,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-TSE
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-TSE
     dependsOn:
@@ -513,8 +473,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-FILES
         concurrencyPolicy: restartAfterCurrent
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: abortWorkflow
     name: RMDM-FILES
     dependsOn:
@@ -526,8 +485,7 @@ workflowDefinition:
       transformation:
         externalId: tr-RMDM-FILES-DEL
         concurrencyPolicy: fail
-    retries: null
-    timeout: null
+    retries: 3
     onFailure: skipTask
     name: RMDM-FILES-DEL
   description: Workflow to populate FROM SCRATCH the RMDM data model
