@@ -1,12 +1,9 @@
-space: {{rmdm_model_space}}  # Reference the variable in config.dev.YAML
-
+space: {{ rmdm_model_space }}
 externalId: Equipment
-name: Equipment
-description: Container for physical equipment used in operations and maintenance.
-
+name: RM Equipment
 properties:
   normalOperatingState:
-    type: 
+    type:
       list: false
       collation: ucs_basic
       type: text
@@ -14,29 +11,29 @@ properties:
     nullable: true
     autoIncrement: false
     name: Normal Operating State
-    description: The expected functional condition of an equipment under standard op
-
+    description: >
+      The expected functional condition of an equipment under standard operating parameters.
+      parameters.
   startDateCurrentService:
-      type: 
-  list: false
-  type: datetime
-      nullable: true
-      immutable: false
-      autoIncrement: false
-      name: Start Date Current Service
-      description: The date when the equipment began its current service period.
-
+    type:
+      list: false
+      type: date
+    immutable: false
+    nullable: true
+    autoIncrement: false
+    name: Start Date Current Service
+    description: >
+      The date when the equipment began its current service period.
   equipmentClass:
     type:
-    	list: false
-	type: text
+      list: false
+      type: direct
+    immutable: false
     nullable: true
-    immutable: false 
-    directRelation: true
     autoIncrement: false
     name: Equipment Class
-    description: Specifies the class of the equipment.
-
+    description: >
+      Specifies the class of the equipment.
 constraints:
   cdf_cdm_CogniteEquipment:
     require:
@@ -44,19 +41,16 @@ constraints:
       externalId: CogniteEquipment
       type: container
     constraintType: requires
-
 indexes:
   startDateCurrentServiceIndex:
     properties:
-      startDateCurrentService: {}
+      - startDateCurrentService
     indexType: btree
     cursorable: false
     bySpace: false
-
-    equipmentClassIndex:
+  equipmentClassIndex:
     properties:
-      equipmentClass: {}
+      - equipmentClass
     indexType: btree
     cursorable: false
     bySpace: false
-

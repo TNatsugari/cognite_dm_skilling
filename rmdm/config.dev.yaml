@@ -1,6 +1,6 @@
 environment:
   name: dev
-  project: <cdf-project>
+  project: tn-sandbox-jptk
   validation-type: dev
   selected:
   - modules/Session1
