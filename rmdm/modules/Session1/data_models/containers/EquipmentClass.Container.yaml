@@ -1,0 +1,3 @@
+space: {{ rmdm_model_space }}
+externalId: EquipmentClass
+name: RM Equipment Class
