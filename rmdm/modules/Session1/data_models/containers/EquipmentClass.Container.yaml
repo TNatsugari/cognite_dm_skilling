@@ -1,3 +1,21 @@
-space: {{ rmdm_model_space }}
-externalId: EquipmentClass
-name: RM Equipment Class
+space: '{{rmdm_model_space}}'
+externalId: EquipmentType
+name: Equipment Type
+description: Standard definition for a specific type or model of physical equipment.
+properties:
+  'class':
+    type: 
+      list: false
+      type: direct 
+    immutable: false
+    nullable: true
+    autoIncrement: false
+    name: Class 
+    description: Specifies the class of the equipment.
+constraints:
+  cdf_cdm_CogniteEquipmentType:
+    require:
+      space: cdf_cdm
+      externalId: CogniteEquipmentType
+      type: container
+    constraintType: requires

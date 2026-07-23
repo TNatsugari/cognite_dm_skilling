@@ -85,6 +85,16 @@ properties:
     autoIncrement: false
     name: Status Description
     description: A string indicating the status of this notifcation.
+  equipment:
+    type:
+      list: true
+      type: direct
+    nullable: true
+    immutable: false
+    autoIncrement: false
+    name: Equipment
+    description: A list of physical equipment instances related to this notification
+
 constraints:
   cdf_idm_CogniteNotification:
     require:
